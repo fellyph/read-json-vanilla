@@ -1,0 +1,15 @@
+.header-top {
+  &--logo {
+    display: block;
+    margin: 1em;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 200px;
+    height: 50px;
+    background: url($logo);
+  }
+
+  &--control{
+    
+  }
+}

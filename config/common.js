@@ -21,7 +21,7 @@ module.exports = {
   },
 
   htmlPluginConfig: {
-    title: 'My app',
+    title: 'Fellyph Cintra test',
     template: join(paths.src, 'html', 'template.html')
   },
 
