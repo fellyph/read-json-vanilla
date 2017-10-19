@@ -54,5 +54,16 @@
 	"dependencies": {
 		"babel-runtime": "^6.26.0",
 		"prop-types": "^15.5.10"
-	}
+	},
+	"scripts": {
+		"start": "yarn dev",
+		"dev": "webpack-dashboard -- node server.js",
+		"test": "jest --coverage",
+		"test:watch": "yarn test -- --watch",
+		"lint": "standard --parser babel-eslint --verbose | snazzy",
+		"lint:fix": "standard --fix",
+		"build": "cross-env NODE_ENV=production BABEL_ENV=production webpack --progress --config config/prod.config -p",
+		"build:analyzer": "cross-env ANALYZER=true yarn build",
+		"update-packages": "node scripts/update.js"
+	  }
 }
