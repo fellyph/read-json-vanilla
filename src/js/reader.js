@@ -2,20 +2,20 @@
 import axios from 'axios'
 
 class Reader {
-  constructor(url) {
+  constructor (url) {
     this.data = null
     this.url = url
   }
 
   init () {
-    if(typeof this.url !== 'undefined') {
+    if (typeof this.url !== 'undefined') {
       return {data: 'no url register'}
     }
 
-    axios.get(url)
+    axios.get(this.url)
     .then((response) => {
       this.data = response
-      console.log('response');
+      console.log('response')
       return this.data
     })
     .catch((error) => {
@@ -23,3 +23,5 @@ class Reader {
     })
   }
 }
+
+export default Reader
