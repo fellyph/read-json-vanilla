@@ -1,15 +1,13 @@
+import Reader from './js/reader'
 
 class App {
   constructor () {
-    this.cars = null
+    this.cars = null,
+    this.reader = new Reader('http://www.cartrawler.com/ctabe/cars.json')
   }
 
   get cars () {
-    return new Promise((resolve, reject) => {
-      if (this.cars) {
-        return resolve(this.cars)
-      }
-    })
+    this.cars = this.reader.init();
   }
 }
 
