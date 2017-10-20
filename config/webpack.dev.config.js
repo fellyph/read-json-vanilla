@@ -32,7 +32,7 @@ module.exports = {
     rules: [
       common.standardPreLoader,
       common.jsLoader,
-      common.cssLoader,
+      common.sassLoader,
       common.fileLoader,
       common.urlLoader
     ]
