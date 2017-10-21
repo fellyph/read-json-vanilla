@@ -5,6 +5,7 @@ const common = require('./common')
 
 const HtmlPlugin = require('html-webpack-plugin')
 const DashboardPlugin = require('webpack-dashboard/plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   devtool: 'source-map',
@@ -24,7 +25,7 @@ module.exports = {
     new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new DashboardPlugin(),
-
+    new ExtractTextPlugin('style.css'),
     new HtmlPlugin(common.htmlPluginConfig)
   ],
 

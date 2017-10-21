@@ -1,5 +1,6 @@
 'use strict'
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { join } = require('path')
 
 const paths = {
@@ -64,7 +65,10 @@ module.exports = {
   sassLoader: {
     test: /\.scss$/,
     include: paths.src,
-    use: ['css-loader', 'sass-loader']
+    use: ExtractTextPlugin.extract({
+      fallback: 'style-loader',
+      use: ['css-loader', 'sass-loader']
+    })
   },
 
   fileLoader: {
