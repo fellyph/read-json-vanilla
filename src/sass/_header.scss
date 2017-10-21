@@ -1,6 +1,8 @@
 .header {
   background-color: $text-color;
   padding: 0.5em;
+  border-bottom: 3px solid $primary;
+
   .header__logo {
     display: block;
     text-indent: -9999px;
@@ -10,9 +12,5 @@
     background-image: url($logo);
     background-size: contain;
     background-repeat: no-repeat;
-  }
-
-  .header__control{
-
   }
 }

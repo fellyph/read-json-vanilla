@@ -5,8 +5,8 @@ import axios from 'axios'
 class App {
   constructor (target) {
     this.target = target
-    this.carsPrev = null
-    this.carsCurr = null
+    this.carsData = []
+    this.carsTemplate = ''
   }
 
   init () {
@@ -16,13 +16,23 @@ class App {
         return [...prev, ...curr.VehAvails]
       })
       this.cars.map((data) => {
-        let car = new Car(data.Vehicle.VehMakeModel['@Name'], data.Vehicle.PictureURL, data['@Status'], data.Vehicle['@FuelType'])
-        this.target.innerHTML += CarTemplate(car)
+        let car = new Car(data.Vehicle.VehMakeModel['@Name'], data.Vehicle.PictureURL, data['@Status'], data.Vehicle['@FuelType'], data.TotalCharge['@RateTotalAmount'], data.TotalCharge['@CurrencyCode'])
+        this.carsData.push(car)
+        this.carsTemplate += CarTemplate(car)
       })
+      this.target.innerHTML = this.carsTemplate
     })
     .catch((error) => {
       return {error: error}
     })
+  }
+
+  sortByPrice () {
+    
+  }
+
+  sortByName () {
+    
   }
 }
 
