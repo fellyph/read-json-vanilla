@@ -1,19 +1,12 @@
+import carDetails from './carDetails'
+import thumb from '../common/thumb'
+
 const carTemplate = (car) => {
   return `
-    <dl class="car">
-      <div class="car__proper">
-      <dt class="car__label">Name:</dt>
-      <dd>${car.Vehicle.VehMakeModel['@Name']}</dd>
-      </div>
-      <div class="car__proper">
-      <dt class="car__label">Status:</dt>
-      <dd>${car['@Status']}</dd>
-      </div>
-      <div class="car__proper">
-      <dt class="car__label">Fuel:</dt>
-      <dd>${car.Vehicle['@FuelType']}</dd>
-      </div>
-    </dl>`
+    <div class="car">
+      ${thumb(car.picture)}
+      ${carDetails(car.name, car.status, car.fuelType)}
+    </div>`
 }
 
 export default carTemplate
