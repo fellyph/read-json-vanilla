@@ -45,10 +45,14 @@ class App {
     }
 
     orderByPrice.map((car) => {
-      console.log(car)
-      this.carsTemplate += CarTemplate(car)
+      let carTemplate = new CarTemplate(car, (e) => this.showDetails(e))
+      console.log(carTemplate.getTemplate())
+      this.target.appendChild(carTemplate.getTemplate())
     })
-    this.target.innerHTML = this.carsTemplate
+  }
+
+  showDetails (e) {
+    console.log(e, this)
   }
 }
 
