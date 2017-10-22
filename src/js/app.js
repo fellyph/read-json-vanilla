@@ -1,6 +1,7 @@
 'use strict'
 import Car from './car/car'
 import CarTemplate from './car/carTemplate'
+import LightBox from './common/lightBox'
 import axios from 'axios'
 
 class App {
@@ -32,7 +33,7 @@ class App {
 
   sortBy (prop) {
     console.log(prop)
-    this.carsTemplate = ''
+    this.target.innerHTML = ''
     let orderByPrice = this.carsData
     if (prop === 'name') {
       orderByPrice.sort((a, b) => {
@@ -45,14 +46,24 @@ class App {
     }
 
     orderByPrice.map((car) => {
-      let carTemplate = new CarTemplate(car, (e) => this.showDetails(e))
-      console.log(carTemplate.getTemplate())
+      const carTemplate = new CarTemplate(car, (e) => this.showDetails(e))
       this.target.appendChild(carTemplate.getTemplate())
     })
   }
 
   showDetails (e) {
     console.log(e, this)
+    const lightBox = new LightBox(e).getTemplate()
+    const shadow = document.createElement('div')
+    shadow.className = 'shadow'
+    shadow.addEventListener('click', (e) => this.removeDetails(e.target, lightBox))
+    this.target.appendChild(shadow)
+    this.target.appendChild(lightBox)
+  }
+
+  removeDetails (shadow, lightBox) {
+    this.target.removeChild(shadow)
+    this.target.removeChild(lightBox)
   }
 }
 
